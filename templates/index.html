@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Research Paper Summarizer</title>
+</head>
+<body>
+  <h1>Upload Research Paper</h1>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="file" accept=".pdf,.docx,.txt" required>
+    <button type="submit">Summarize</button>
+  </form>
+  {% if summary %}
+  <h2>Summary</h2>
+  <pre>{{ summary }}</pre>
+  {% endif %}
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+      <ul>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+</body>
+</html>
